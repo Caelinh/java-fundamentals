@@ -26,7 +26,6 @@ class LibraryTest {
         int stars = 1;
         Restaurant whataburger = new Restaurant("Whataburger",stars,"$");
         whataburger.addReview(body,author,score);
-        assertSame(whataburger.getReview().author,author);
         assertSame(whataburger.getStars(),(score+stars)/2);
     }
 

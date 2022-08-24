@@ -1,16 +1,23 @@
 package inheritance;
 
-public class Restaurant {
+import java.util.ArrayList;
+
+public class Restaurant extends Business{
 
     private String name;
     private int stars;
+
     private String price;
-    private Review review;
+
+    private ArrayList<Review> review = new ArrayList<>();
+
+
 
     public Restaurant(String name, int stars, String price) {
         this.name = name;
         this.stars = stars;
         this.price = price;
+        this.review = review;
     }
 
 
@@ -25,15 +32,15 @@ public class Restaurant {
     }
 
     public void addReview(String body, String author, int score) {
-        this.review = new Review(this.name,body, author, score);
-        this.stars = (this.stars+score)/2;
+        this.review.add(new Review(getName(),body, author, score));
+        setStars((this.stars+score)/2);
     }
 
-    public Review getReview() {
+    public ArrayList<Review> getReview() {
         return review;
     }
 
-    public void setReview(Review review) {
+    public void setReview(ArrayList<Review> review) {
         this.review = review;
     }
 
